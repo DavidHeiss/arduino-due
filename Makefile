@@ -53,7 +53,7 @@ _getpid
 stdc = gnu99
 stdc++ = gnu++11
 
-opti = 0
+opti = s
 
 libcorec = sam/system/libsam/source/tc.c \
 sam/system/libsam/source/interrupt_sam_nvic.c \
@@ -116,7 +116,7 @@ sam/variants/arduino_due_x/variant.cpp
 
 files = src/main.cpp
 
-build: $(patsubst %.cpp,%.o,$(filter %.cpp,$(files)))
+build: $(libcorec:%.c=%.o) $(libcorec++:%.cpp=%.o) sam/cores/arduino/wiring_pulse_asm.o $(patsubst %.cpp,%.o,$(filter %.cpp,$(files)))
 	@echo build/firmware.elf
 	@arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map -lm -Tsam/variants/arduino_due_x/linker_scripts/gcc/flash.ld $(addprefix -m,$(machine-options)) $(addprefix -u,$(symbols)) -Wl,-Map=build/firmware.map -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--start-group -Wl,--gc-sections -Wl,--end-group -Lsam/system/CMSIS/CMSIS/Lib/GCC $(patsubst %.cpp,build/%.o,$(filter %.cpp,$(files))) $(addprefix ./build/,$(libcorec++:%.cpp=%.o) $(libcorec:%.c=%.o) sam/cores/arduino/wiring_pulse_asm.o) sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a -o build/firmware.elf
 
@@ -147,15 +147,12 @@ clean:
 		arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map $(addprefix -,$(args)) $(addprefix -I,$(includes)) $(addprefix -D,$(defines)) $(addprefix -f,$(options)) $(addprefix -m,$(machine-options)) -x assembler-with-cpp $^ -o build/$@; \
 	fi
 
-libcore: $(libcorec:%.c=%.o) $(libcorec++:%.cpp=%.o) sam/cores/arduino/wiring_pulse_asm.o
-	arm-none-eabi-ar rcs build/sam/libcore.a $(addprefix ./build/,$(libcorec++:%.cpp=%.o) $(libcorec:%.c=%.o) sam/cores/arduino/wiring_pulse_asm.o)
-
 upload:
 	openocd -s /usr/share/openocd/scripts \
         -f interface/cmsis-dap.cfg -f board/atmel_sam3x_ek.cfg \
         -c "init"  \
         -c "halt"  \
-        -c "flash write_image erase build/firmware.elf"  \
+        -c "flash write_image erase build/firmware.elf" \
         -c "at91sam3 gpnvm set 1" \
         -c "reset run" \
         -c "exit"
