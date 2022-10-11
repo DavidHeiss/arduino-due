@@ -1,0 +1,57 @@
+{
+    "configurations": [
+        {
+            "name": "sam3x8e",
+            "includePath": [
+                "${workspaceFolder}/src/**",
+                "ArduinoCore-sam/system/CMSIS/CMSIS/Include",
+                "ArduinoCore-sam/system/CMSIS/Device/ATMEL",
+                "ArduinoCore-sam/system/CMSIS/Device/ATMEL/sam3xa/include",
+                "ArduinoCore-sam/system/libsam",
+                "ArduinoCore-sam/system/libsam/include",
+                "ArduinoCore-sam/cores/arduino",
+                "ArduinoCore-sam/variants/arduino_due_x",
+                "ArduinoCore-sam/cores/arduino/USB"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "${workspaceFolder}/src/**",
+                    "ArduinoCore-sam/system/CMSIS/CMSIS/Include",
+                    "ArduinoCore-sam/system/CMSIS/Device/ATMEL",
+                    "ArduinoCore-sam/system/CMSIS/Device/ATMEL/sam3xa/include",
+                    "ArduinoCore-sam/system/libsam",
+                    "ArduinoCore-sam/system/libsam/include",
+                    "ArduinoCore-sam/cores/arduino",
+                    "ArduinoCore-sam/variants/arduino_due_x",
+                    "ArduinoCore-sam/cores/arduino/USB"
+                ]
+            },
+            "defines": [
+                "__PROG_TYPES_COMPAT__",
+                "MD",
+                "USBCON",
+                "USB_PRODUCT=\"Arduino Due\"",
+                "USB_MANUFACTURER=\"Arduino LLC\"",
+                "__SAM3X8E__",
+                "USB_VID=0x2341",
+                "USB_PID=0x003e",
+                "printf=iprintf",
+                "ARDUINO_SAM_DUE",
+                "F_CPU=84000000L",
+                "ARDUINO=105",
+                "ARDUINO_ARCH_S"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/usr/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-nostdlib",
+                "-mcpu=cortex-m3",
+                "-mthumb"
+            ],
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
+}

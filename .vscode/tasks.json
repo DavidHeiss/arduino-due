@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build & openocd",
+            "dependsOn": ["build", "openocd"]
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make build",
+            "problemMatcher": "$gcc",
+        },
+        {
+            "label": "openocd",
+            "type": "shell",
+            "command": "openocd -s /usr/share/openocd/scripts -f interface/cmsis-dap.cfg -f board/atmel_sam3x_ek.cfg",
+            "isBackground": true,
+            "runOptions": {
+                "instanceLimit": 1
+            },
+            "problemMatcher": [
+                {
+                    "owner": "custom",
+                    "pattern": [
+                        {
+                            "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
+                            "file": 1,
+                            "location": 2,
+                            "message": 3
+                        }
+                    ],
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": {
+                            "regexp": "Open On-Chip Debugger 0.10.0"
+                        },
+                        "endsPattern": {
+                            "regexp": "Info : sam3.cpu: hardware has 6 breakpoints, 4 watchpoints",
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
