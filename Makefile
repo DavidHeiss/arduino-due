@@ -116,9 +116,9 @@ sam/variants/arduino_due_x/variant.cpp
 
 files = src/main.cpp
 
-build: clean libcore $(patsubst %.cpp,%.o,$(filter %.cpp,$(files)))
+build: libcore $(patsubst %.cpp,%.o,$(filter %.cpp,$(files)))
 	@echo build/firmware.elf
-	arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map -lm -Tsam/variants/arduino_due_x/linker_scripts/gcc/flash.ld $(addprefix -m,$(machine-options)) $(addprefix -u,$(symbols)) -Wl,-Map=build/firmware.map -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--start-group -Wl,--gc-sections -Wl,--end-group -Lsam/system/CMSIS/CMSIS/Lib/GCC $(patsubst %.cpp,build/%.o,$(filter %.cpp,$(files))) sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a build/sam/libcore.a -o build/firmware.elf
+	arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map -lm -Tsam/variants/arduino_due_x/linker_scripts/gcc/flash.ld $(addprefix -m,$(machine-options)) $(addprefix -u,$(symbols)) -Wl,-Map=build/firmware.map -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--start-group -Wl,--gc-sections -Wl,--end-group -Lsam/system/CMSIS/CMSIS/Lib/GCC $(patsubst %.cpp,build/%.o,$(filter %.cpp,$(files))) $(addprefix ./build/,$(libcorec++:%.cpp=%.o) $(libcorec:%.c=%.o) sam/cores/arduino/wiring_pulse_asm.o) sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a -o build/firmware.elf
 
 clean:
 	@if test -d build; then \
