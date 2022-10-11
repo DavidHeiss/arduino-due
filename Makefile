@@ -1,11 +1,11 @@
-includes = ArduinoCore-sam/system/CMSIS/CMSIS/Include \
-ArduinoCore-sam/system/CMSIS/Device/ATMEL \
-ArduinoCore-sam/system/CMSIS/Device/ATMEL/sam3xa/include \
-ArduinoCore-sam/system/libsam \
-ArduinoCore-sam/system/libsam/include \
-ArduinoCore-sam/cores/arduino \
-ArduinoCore-sam/variants/arduino_due_x \
-ArduinoCore-sam/cores/arduino/USB
+includes = sam/system/CMSIS/CMSIS/Include \
+sam/system/CMSIS/Device/ATMEL \
+sam/system/CMSIS/Device/ATMEL/sam3xa/include \
+sam/system/libsam \
+sam/system/libsam/include \
+sam/cores/arduino \
+sam/variants/arduino_due_x \
+sam/cores/arduino/USB
 
 defines = __PROG_TYPES_COMPAT__ \
 MD \
@@ -53,71 +53,72 @@ _getpid
 stdc = gnu99
 stdc++ = gnu++11
 
-opti = g
+opti = 0
 
-libcorec = ArduinoCore-sam/system/libsam/source/tc.c \
-ArduinoCore-sam/system/libsam/source/interrupt_sam_nvic.c \
-ArduinoCore-sam/system/libsam/source/uotghs_device.c \
-ArduinoCore-sam/system/libsam/source/adc12_sam3u.c \
-ArduinoCore-sam/system/libsam/source/twi.c \
-ArduinoCore-sam/system/libsam/source/udphs.c \
-ArduinoCore-sam/system/libsam/source/spi.c \
-ArduinoCore-sam/system/libsam/source/efc.c \
-ArduinoCore-sam/system/libsam/source/dacc.c \
-ArduinoCore-sam/system/libsam/source/pio.c \
-ArduinoCore-sam/system/libsam/source/pmc.c \
-ArduinoCore-sam/system/libsam/source/emac.c \
-ArduinoCore-sam/system/libsam/source/rtt.c \
-ArduinoCore-sam/system/libsam/source/uotghs_host.c \
-ArduinoCore-sam/system/libsam/source/rstc.c \
-ArduinoCore-sam/system/libsam/source/trng.c \
-ArduinoCore-sam/system/libsam/source/can.c \
-ArduinoCore-sam/system/libsam/source/pwmc.c \
-ArduinoCore-sam/system/libsam/source/rtc.c \
-ArduinoCore-sam/system/libsam/source/timetick.c \
-ArduinoCore-sam/system/libsam/source/adc.c \
-ArduinoCore-sam/system/libsam/source/udp.c \
-ArduinoCore-sam/system/libsam/source/wdt.c \
-ArduinoCore-sam/system/libsam/source/usart.c \
-ArduinoCore-sam/system/libsam/source/uotghs.c \
-ArduinoCore-sam/system/libsam/source/ssc.c \
-ArduinoCore-sam/system/libsam/source/gpbr.c \
-ArduinoCore-sam/system/CMSIS/Device/ATMEL/sam3xa/source/system_sam3xa.c \
-ArduinoCore-sam/cores/arduino/wiring.c \
-ArduinoCore-sam/cores/arduino/WInterrupts.c \
-ArduinoCore-sam/cores/arduino/wiring_digital.c \
-ArduinoCore-sam/cores/arduino/itoa.c \
-ArduinoCore-sam/cores/arduino/hooks.c \
-ArduinoCore-sam/cores/arduino/syscalls_sam3.c \
-ArduinoCore-sam/cores/arduino/wiring_analog.c \
-ArduinoCore-sam/cores/arduino/wiring_shift.c \
-ArduinoCore-sam/cores/arduino/iar_calls_sam3.c \
-ArduinoCore-sam/cores/arduino/cortex_handlers.c \
-ArduinoCore-sam/cores/arduino/avr/dtostrf.c
+libcorec = sam/system/libsam/source/tc.c \
+sam/system/libsam/source/interrupt_sam_nvic.c \
+sam/system/libsam/source/uotghs_device.c \
+sam/system/libsam/source/adc12_sam3u.c \
+sam/system/libsam/source/twi.c \
+sam/system/libsam/source/udphs.c \
+sam/system/libsam/source/spi.c \
+sam/system/libsam/source/efc.c \
+sam/system/libsam/source/dacc.c \
+sam/system/libsam/source/pio.c \
+sam/system/libsam/source/pmc.c \
+sam/system/libsam/source/emac.c \
+sam/system/libsam/source/rtt.c \
+sam/system/libsam/source/uotghs_host.c \
+sam/system/libsam/source/rstc.c \
+sam/system/libsam/source/trng.c \
+sam/system/libsam/source/can.c \
+sam/system/libsam/source/pwmc.c \
+sam/system/libsam/source/rtc.c \
+sam/system/libsam/source/timetick.c \
+sam/system/libsam/source/adc.c \
+sam/system/libsam/source/udp.c \
+sam/system/libsam/source/wdt.c \
+sam/system/libsam/source/usart.c \
+sam/system/libsam/source/uotghs.c \
+sam/system/libsam/source/ssc.c \
+sam/system/libsam/source/gpbr.c \
+sam/system/CMSIS/Device/ATMEL/sam3xa/source/system_sam3xa.c \
+sam/cores/arduino/wiring.c \
+sam/cores/arduino/WInterrupts.c \
+sam/cores/arduino/wiring_digital.c \
+sam/cores/arduino/itoa.c \
+sam/cores/arduino/hooks.c \
+sam/cores/arduino/syscalls_sam3.c \
+sam/cores/arduino/wiring_analog.c \
+sam/cores/arduino/wiring_shift.c \
+sam/cores/arduino/iar_calls_sam3.c \
+sam/cores/arduino/cortex_handlers.c \
+sam/cores/arduino/avr/dtostrf.c
 
-libcorec++ = ArduinoCore-sam/cores/arduino/IPAddress.cpp \
-ArduinoCore-sam/cores/arduino/wiring_pulse.cpp \
-ArduinoCore-sam/cores/arduino/new.cpp \
-ArduinoCore-sam/cores/arduino/WString.cpp \
-ArduinoCore-sam/cores/arduino/WMath.cpp \
-ArduinoCore-sam/cores/arduino/Stream.cpp \
-ArduinoCore-sam/cores/arduino/Print.cpp \
-ArduinoCore-sam/cores/arduino/watchdog.cpp \
-ArduinoCore-sam/cores/arduino/Reset.cpp \
-ArduinoCore-sam/cores/arduino/USARTClass.cpp \
-ArduinoCore-sam/cores/arduino/main.cpp \
-ArduinoCore-sam/cores/arduino/abi.cpp \
-ArduinoCore-sam/cores/arduino/RingBuffer.cpp \
-ArduinoCore-sam/cores/arduino/UARTClass.cpp \
-ArduinoCore-sam/cores/arduino/USB/USBCore.cpp \
-ArduinoCore-sam/cores/arduino/USB/PluggableUSB.cpp \
-ArduinoCore-sam/cores/arduino/USB/CDC.cpp \
-ArduinoCore-sam/variants/arduino_due_x/variant.cpp
+libcorec++ = sam/cores/arduino/IPAddress.cpp \
+sam/cores/arduino/wiring_pulse.cpp \
+sam/cores/arduino/new.cpp \
+sam/cores/arduino/WString.cpp \
+sam/cores/arduino/WMath.cpp \
+sam/cores/arduino/Stream.cpp \
+sam/cores/arduino/Print.cpp \
+sam/cores/arduino/watchdog.cpp \
+sam/cores/arduino/Reset.cpp \
+sam/cores/arduino/USARTClass.cpp \
+sam/cores/arduino/main.cpp \
+sam/cores/arduino/abi.cpp \
+sam/cores/arduino/RingBuffer.cpp \
+sam/cores/arduino/UARTClass.cpp \
+sam/cores/arduino/USB/USBCore.cpp \
+sam/cores/arduino/USB/PluggableUSB.cpp \
+sam/cores/arduino/USB/CDC.cpp \
+sam/variants/arduino_due_x/variant.cpp
 
-files = src/main.c
+files = src/main.cpp
 
-build: libcore $(patsubst %.cpp,%.o,$(filter %.cpp,$(files))) $(patsubst %.c,%.o,$(filter %.c,$(files)))
-	arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map -lm -TArduinoCore-sam/variants/arduino_due_x/linker_scripts/gcc/flash.ld $(addprefix -m,$(machine-options)) $(addprefix -u,$(symbols)) -Wl,-Map=build/firmware.map -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--start-group -Wl,--gc-sections -Wl,--end-group -LArduinoCore-sam/system/CMSIS/CMSIS/Lib/GCC $(patsubst %.cpp,build/%.o,$(filter %.cpp,$(files))) $(patsubst %.c,build/%.o,$(filter %.c,$(files))) ArduinoCore-sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a build/libcore.a -o build/firmware.elf
+build: clean libcore $(patsubst %.cpp,%.o,$(filter %.cpp,$(files)))
+	@echo build/firmware.elf
+	arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map -lm -Tsam/variants/arduino_due_x/linker_scripts/gcc/flash.ld $(addprefix -m,$(machine-options)) $(addprefix -u,$(symbols)) -Wl,-Map=build/firmware.map -Wl,--check-sections -Wl,--gc-sections -Wl,--entry=Reset_Handler -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-section-align -Wl,--start-group -Wl,--gc-sections -Wl,--end-group -Lsam/system/CMSIS/CMSIS/Lib/GCC $(patsubst %.cpp,build/%.o,$(filter %.cpp,$(files))) sam/variants/arduino_due_x/libsam_sam3x8e_gcc_rel.a build/sam/libcore.a -o build/firmware.elf
 
 clean:
 	@if test -d build; then \
@@ -146,9 +147,5 @@ clean:
 		arm-none-eabi-gcc -O$(opti) -Wl,-Map=/firmware.map $(addprefix -,$(args)) $(addprefix -I,$(includes)) $(addprefix -D,$(defines)) $(addprefix -f,$(options)) $(addprefix -m,$(machine-options)) -x assembler-with-cpp $^ -o build/$@; \
 	fi
 
-libcore: $(libcorec:%.c=%.o) $(libcorec++:%.cpp=%.o) ArduinoCore-sam/cores/arduino/wiring_pulse_asm.o
-	@if [ ! -e build/libcore.a ] || $(subst ] [,] || [,$(foreach var, $(libcorec) $(libcorec++) ArduinoCore-sam/cores/arduino/wiring_pulse_asm.S,[ $(var) -nt build/libcore.a ])); then \
-		echo libcore.a; \
-		mkdir -p build; \
-		arm-none-eabi-ar rcs build/libcore.a $(addprefix build/,$(libcorec:%.c=%.o) $(libcorec++:%.cpp=%.o) ArduinoCore-sam/cores/arduino/wiring_pulse_asm.o); \
-	fi
+libcore: $(libcorec:%.c=%.o) $(libcorec++:%.cpp=%.o) sam/cores/arduino/wiring_pulse_asm.o
+	arm-none-eabi-ar rcs build/sam/libcore.a $(addprefix ./build/,$(libcorec++:%.cpp=%.o) $(libcorec:%.c=%.o) sam/cores/arduino/wiring_pulse_asm.o)

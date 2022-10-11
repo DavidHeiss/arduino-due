@@ -4,27 +4,27 @@
             "name": "sam3x8e",
             "includePath": [
                 "${workspaceFolder}/src/**",
-                "ArduinoCore-sam/system/CMSIS/CMSIS/Include",
-                "ArduinoCore-sam/system/CMSIS/Device/ATMEL",
-                "ArduinoCore-sam/system/CMSIS/Device/ATMEL/sam3xa/include",
-                "ArduinoCore-sam/system/libsam",
-                "ArduinoCore-sam/system/libsam/include",
-                "ArduinoCore-sam/cores/arduino",
-                "ArduinoCore-sam/variants/arduino_due_x",
-                "ArduinoCore-sam/cores/arduino/USB"
+                "sam/system/CMSIS/CMSIS/Include",
+                "sam/system/CMSIS/Device/ATMEL",
+                "sam/system/CMSIS/Device/ATMEL/sam3xa/include",
+                "sam/system/libsam",
+                "sam/system/libsam/include",
+                "sam/cores/arduino",
+                "sam/variants/arduino_due_x",
+                "sam/cores/arduino/USB"
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
                     "${workspaceFolder}/src/**",
-                    "ArduinoCore-sam/system/CMSIS/CMSIS/Include",
-                    "ArduinoCore-sam/system/CMSIS/Device/ATMEL",
-                    "ArduinoCore-sam/system/CMSIS/Device/ATMEL/sam3xa/include",
-                    "ArduinoCore-sam/system/libsam",
-                    "ArduinoCore-sam/system/libsam/include",
-                    "ArduinoCore-sam/cores/arduino",
-                    "ArduinoCore-sam/variants/arduino_due_x",
-                    "ArduinoCore-sam/cores/arduino/USB"
+                    "sam/system/CMSIS/CMSIS/Include",
+                    "sam/system/CMSIS/Device/ATMEL",
+                    "sam/system/CMSIS/Device/ATMEL/sam3xa/include",
+                    "sam/system/libsam",
+                    "sam/system/libsam/include",
+                    "sam/cores/arduino",
+                    "sam/variants/arduino_due_x",
+                    "sam/cores/arduino/USB"
                 ]
             },
             "defines": [
