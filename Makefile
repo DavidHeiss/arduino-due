@@ -149,3 +149,13 @@ clean:
 
 libcore: $(libcorec:%.c=%.o) $(libcorec++:%.cpp=%.o) sam/cores/arduino/wiring_pulse_asm.o
 	arm-none-eabi-ar rcs build/sam/libcore.a $(addprefix ./build/,$(libcorec++:%.cpp=%.o) $(libcorec:%.c=%.o) sam/cores/arduino/wiring_pulse_asm.o)
+
+upload:
+	openocd -s /usr/share/openocd/scripts \
+        -f interface/cmsis-dap.cfg -f board/atmel_sam3x_ek.cfg \
+        -c "init"  \
+        -c "halt"  \
+        -c "flash write_image erase build/firmware.elf"  \
+        -c "at91sam3 gpnvm set 1" \
+        -c "reset run" \
+        -c "exit"
